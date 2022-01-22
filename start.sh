@@ -19,7 +19,8 @@ function setup_homebrew
     # CHECK IF HOMEBREW IS INSTALLED
     if type -q brew
         brew update
-        echo "[!] Homebrew already installed"
+        echo "------------"
+        echo "[!] Homebrew is already installed"
     
     else
         # Install Homebrew
@@ -29,6 +30,13 @@ function setup_homebrew
     end
 end
 
-# RUN FUNCTIONS
+# RUN SETUP FUNCTIONS
 setup_ansible
 setup_homebrew
+
+# INSTALL ANSIBLE
+if type -q ansible
+    echo "[!] Ansible is already installed"
+else
+    brew install ansible
+end
