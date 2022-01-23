@@ -48,3 +48,57 @@ The following are just extra tools that are for procrastination.
 5. Zoom
 6. Microsoft Office (get from Office365)
 7. 1Password
+
+## Configuration for Tools
+
+### Set FiSH as default
+```terminal
+#!/usr/bin/env fish
+
+$ echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+$ chsh -s /opt/homebrew/bin/fish
+```
+
+### VS Code
+
+Configuration
+```
+# settings.json
+
+"editor.fontFamily": "Fira Code",
+"editor.fontLigatures": true,
+```
+
+#### Extensions
+1. Python
+2. Pylance
+3. Prettier
+4. Visual Studio Intellicode
+5. Docker
+6. GitLens
+7. Material Icons
+8. Markdown All In One
+
+### Hyper Terminal
+
+Configuration
+```
+# ~/.hyper.js
+
+shell: '/opt/homebrew/bin/fish',
+...
+fontFamily: '"Fira Code", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+...
+webGLRenderer: false,
+```
+
+Errors
+```
+$ cd ~/.hyper_plugins
+$ npm install
+```
+
+#### Extensions
+1. hyper-font-ligatures
+2. hyper-pane
+3. hyper-tabs-enhanced
