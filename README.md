@@ -102,3 +102,9 @@ $ npm install
 1. hyper-font-ligatures
 2. hyper-pane
 3. hyper-tabs-enhanced
+
+### Miniconda
+
+```terminal
+$ conda init fish
+```
