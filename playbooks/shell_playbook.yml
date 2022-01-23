@@ -13,10 +13,11 @@
     brew_packages:
       - fish
       - starship
+      - cmatrix  # fancy screen saver
 
     brew_cask_packages:
-      # - hyper
-      - iterm2
+      - hyper
+      # - iterm2
 
     upgrade_homebrew_packages: false
 
@@ -85,7 +86,7 @@
         line: starship init fish | source
         create: yes
 
-    - name: Installing iTerm2 Terminal
+    - name: Installing Terminal
       homebrew_cask:
         name: "{{ brew_cask_packages }}"
         state: present
