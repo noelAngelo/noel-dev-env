@@ -38,7 +38,7 @@ function setup_docker
     else
         # Install Docker
         echo "Installing Docker ..." 
-        brew cask install docker
+        brew install docker
         echo "Successfully installed Docker" 
     end
 end

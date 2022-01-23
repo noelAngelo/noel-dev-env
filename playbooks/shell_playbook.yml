@@ -12,6 +12,7 @@
 
     brew_packages:
       - fish
+      - svn
       - starship
       - cmatrix  # fancy screen saver
 
@@ -24,7 +25,7 @@
   pre_tasks:
     - name: Ensuring Homebrew Is Installed
       stat:
-        path: /usr/local/bin/brew
+        path: /opt/homebrew/bin/brew
       register: homebrew_check
 
     - name: Fail if Homebrew Is Not Installed and install_homebrew_if_missing Is False
@@ -42,16 +43,16 @@
 
   tasks:
     - name: Updating Homebrew
-      homebrew:
+      community.general.homebrew:
         update_homebrew: true
       when: homebrew_check.stat.exists
 
     - name: Upgrading Homebrew Packages
-      homebrew:
+      community.general.homebrew:
         upgrade_all: "{{ upgrade_homebrew_packages }}"
 
     - name: Installing Homebrew Packages (Prompt)
-      homebrew:
+      community.general.homebrew:
         name: "{{ brew_packages }}"
         state: present
       register: result
@@ -61,7 +62,7 @@
     - name: Add FiSH to Shells
       lineinfile:
         dest: /etc/shells
-        line: /usr/local/bin/fish
+        line: /opt/homebrew/bin/fish
       become: true
 
     - name: Installing Cask Repository
@@ -87,7 +88,7 @@
         create: yes
 
     - name: Installing Terminal
-      homebrew_cask:
+      community.general.homebrew_cask:
         name: "{{ brew_cask_packages }}"
         state: present
       register: result

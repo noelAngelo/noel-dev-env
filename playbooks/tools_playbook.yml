@@ -25,7 +25,7 @@
   pre_tasks:
     - name: Ensuring Homebrew Is Installed
       stat:
-        path: /usr/local/bin/brew
+        path: /opt/homebrew/bin/brew
       register: homebrew_check
 
     - name: Fail if Homebrew Is Not Installed and install_homebrew_if_missing Is False
