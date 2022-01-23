@@ -44,7 +44,7 @@ The following are just extra tools that are for procrastination.
 1. Spotify
 2. Messenger
 3. Slack
-4. Magnet
+4. Magnet (get from AppStore)
 5. Zoom
-6. Microsoft Office
+6. Microsoft Office (get from Office365)
 7. 1Password

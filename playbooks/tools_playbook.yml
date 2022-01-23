@@ -1,11 +1,24 @@
 ---
-- name: Text Editor playbook
+- name: Tools playbook
   hosts: localhost
   become: false
   vars:
     brew_cask_packages:
+      # TEXT EDITORS
       - visual-studio-code
       - pycharm-ce
+
+      # DEVELOPMENT
+      - miniconda
+      - neo4j
+      - postman
+
+      # EXTRA
+      - spotify
+      - messenger
+      - slack
+      - zoom
+      - 1password
     
     upgrade_homebrew_packages: false
   
@@ -38,10 +51,18 @@
       homebrew:
         upgrade_all: "{{ upgrade_homebrew_packages }}"
 
-    - name: Installing Text Editors 
-      community.general.homebrew_cask:
-        name: "{{ brew_cask_packages }}"
+    - name: Installing Node
+      homebrew:
+        name: node
         state: present
       register: result
       until: result is successful
       when: homebrew_check.stat.exists
+      ignore_errors: true
+    
+    - name: Installing MacOS Development Tools 
+      community.general.homebrew_cask:
+        name: "{{ brew_cask_packages }}"
+        state: present
+      ignore_errors: true
+
