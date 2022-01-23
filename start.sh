@@ -30,13 +30,28 @@ function setup_homebrew
     end
 end
 
+function setup_docker
+    # CHECK IF DOCKER IS INSTALLED
+    if type -q docker
+        echo "[!] Docker is already installed"
+    
+    else
+        # Install Docker
+        echo "Installing Docker ..." 
+        brew cask install docker
+        echo "Successfully installed Docker" 
+    end
+end
+
 # RUN SETUP FUNCTIONS
 setup_ansible
 setup_homebrew
+setup_docker
 
 # INSTALL ANSIBLE
 if type -q ansible
     echo "[!] Ansible is already installed"
 else
     brew install ansible
+    ansible-galaxy collection install community.general
 end
