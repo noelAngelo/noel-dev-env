@@ -22,7 +22,7 @@ The following are the different tools Noel uses to customize his Terminal.
 1. FiSH shell
 2. Fira Font
 3. Starship Prompt (_*yes, I have a personality. I like pretty things_)
-4. iTerm2
+4. Hyper/iTerm2
 
 #### Text tools
 The following are the different tools Noel uses to write a Shakespere novel.
