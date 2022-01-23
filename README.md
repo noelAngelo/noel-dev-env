@@ -90,6 +90,16 @@ shell: '/opt/homebrew/bin/fish',
 fontFamily: '"Fira Code", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 ...
 webGLRenderer: false,
+...
+hyperline: {
+      plugins: [
+        "ip",
+        "cpu",
+        "memory",
+        "network",
+        "battery"
+      ]
+},
 ```
 
 Errors
