@@ -20,6 +20,8 @@
       - slack
       - zoom
       - 1password
+      # - telegram
+      - lastpass
     
     upgrade_homebrew_packages: false
   
