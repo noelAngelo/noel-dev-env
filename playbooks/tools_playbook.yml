@@ -13,6 +13,8 @@
       - neo4j
       - postman
       - tableplus
+      - tableau
+      - tableau-prep
 
       # EXTRA
       - spotify
@@ -20,6 +22,7 @@
       - slack
       - zoom
       - 1password
+      - google-chrome
     
     upgrade_homebrew_packages: false
   
