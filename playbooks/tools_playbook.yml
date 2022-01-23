@@ -12,6 +12,7 @@
       - miniconda
       - neo4j
       - postman
+      - tableplus
 
       # EXTRA
       - spotify
