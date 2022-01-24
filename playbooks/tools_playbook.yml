@@ -3,6 +3,12 @@
   hosts: localhost
   become: false
   vars:
+    
+    brew_packages:
+      # DEVELOPMENT
+      - node
+      - postgresql
+    
     brew_cask_packages:
       # TEXT EDITORS
       - visual-studio-code
@@ -57,7 +63,7 @@
 
     - name: Installing Node
       homebrew:
-        name: node
+        name: "{{ brew_packages }}"
         state: present
       register: result
       until: result is successful
@@ -69,4 +75,3 @@
         name: "{{ brew_cask_packages }}"
         state: present
       ignore_errors: true
-
