@@ -29,6 +29,7 @@
       - zoom
       - 1password
       - google-chrome
+      - notion
     
     upgrade_homebrew_packages: false
   
