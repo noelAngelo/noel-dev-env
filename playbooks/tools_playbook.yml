@@ -26,9 +26,19 @@
         name: google-chrome
         state: present
 
-    - name: Install amethyst
+    - name: Install notion
       community.general.homebrew_cask:
-        name: amethyst
+        name: notion
+        state: present
+    
+    - name: Install DrawIO
+      community.general.homebrew_cask:
+        name: drawio
+        state: present
+    
+    - name: Install OpenInTerminal
+      community.general.homebrew_cask:
+        name: openinterminal
         state: present
     
     - name: Install GitHub Desktop
