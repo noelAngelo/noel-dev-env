@@ -51,6 +51,11 @@
         name: poetry
         state: present
 
+    - name: Install Astro CLI
+      community.general.homebrew:
+        name: astro
+        state: present
+    
     - name: Install pycharm-community
       community.general.homebrew:
         name: pycharm-ce
