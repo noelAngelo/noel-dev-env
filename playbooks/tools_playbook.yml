@@ -26,6 +26,11 @@
         name: google-chrome
         state: present
 
+    - name: Install amethyst
+      community.general.homebrew_cask:
+        name: amethyst
+        state: present
+
     - name: Install pycharm-community
       community.general.homebrew:
         name: pycharm-ce
