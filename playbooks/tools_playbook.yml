@@ -30,6 +30,11 @@
       community.general.homebrew_cask:
         name: amethyst
         state: present
+    
+    - name: Install poetry
+      community.general.homebrew:
+        name: poetry
+        state: present
 
     - name: Install pycharm-community
       community.general.homebrew:
