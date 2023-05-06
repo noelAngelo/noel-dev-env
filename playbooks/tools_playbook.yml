@@ -31,6 +31,11 @@
         name: amethyst
         state: present
     
+    - name: Install GitHub Desktop
+      community.general.homebrew_cask:
+        name: github
+        state: present
+    
     - name: Install poetry
       community.general.homebrew:
         name: poetry
