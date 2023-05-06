@@ -55,6 +55,11 @@
       community.general.homebrew:
         name: astro
         state: present
+
+    - name: Install Slack
+      community.general.homebrew_cask:
+        name: slack
+        state: present
     
     - name: Install pycharm-community
       community.general.homebrew:
