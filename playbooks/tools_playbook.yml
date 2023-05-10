@@ -1,78 +1,62 @@
-- name: Install Development Tools
+---
+- name: Install Developer Tools
   hosts: localhost
+  become: true
+
   tasks:
-
-    - name: Tap HashiCorp Homebrew Tap
-      command: brew tap hashicorp/tap
-      args:
-        executable: /usr/local/bin/brew
-    
-    - name: Install Terraform
-      command: brew install hashicorp/tap/terraform
-      args:
-        executable: /usr/local/bin/brew
-
-    - name: Install spotify
-      community.general.homebrew_cask:
-        name: spotify
+    - name: Add Microsoft GPG key for Visual Studio Code
+      apt_key:
+        url: https://packages.microsoft.com/keys/microsoft.asc
         state: present
 
-    - name: Install visual-studio-code
-      community.general.homebrew_cask:
-        name: visual-studio-code
+    - name: Add Microsoft repository for Visual Studio Code
+      apt_repository:
+        repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
         state: present
 
-    - name: Install 1password
-      community.general.homebrew_cask:
+    - name: Install Visual Studio Code
+      apt:
+        name: code
+        state: present
+
+    - name: Install 1Password
+      snap:
         name: 1password
         state: present
 
-    - name: Install beekeeper-studio
-      community.general.homebrew_cask:
-        name: beekeeper-studio
+    - name: Install Terraform
+      snap:
+        name: terraform
+        classic: yes
+        channel: latest/beta
         state: present
 
-    - name: Install google-chrome
-      community.general.homebrew_cask:
-        name: google-chrome
-        state: present
-
-    - name: Install notion
-      community.general.homebrew_cask:
-        name: notion
-        state: present
-    
-    - name: Install DrawIO
-      community.general.homebrew_cask:
-        name: drawio
-        state: present
-    
-    - name: Install OpenInTerminal
-      community.general.homebrew_cask:
-        name: openinterminal
-        state: present
-    
-    - name: Install GitHub Desktop
-      community.general.homebrew_cask:
-        name: github
-        state: present
-    
-    - name: Install poetry
-      community.general.homebrew:
-        name: poetry
-        state: present
+    - name: Install Poetry
+      shell: curl -sSL https://install.python-poetry.org | python3 -
+      args:
+        creates: /usr/local/bin/poetry
+      changed_when: false
 
     - name: Install Astro CLI
-      community.general.homebrew:
-        name: astro
-        state: present
+      shell: curl -sSL https://install.astronomer.io | sudo bash
+      args:
+        creates: /usr/local/bin/astro
+      changed_when: false
 
     - name: Install Slack
-      community.general.homebrew_cask:
+      snap:
         name: slack
         state: present
-    
-    - name: Install pycharm-community
-      community.general.homebrew:
-        name: pycharm-ce
+
+    - name: Install Starship prompt
+      snap:
+        name: starship
+        classic: yes
         state: present
+
+    - name: Install PyCharm Community Edition
+      snap:
+        name: pycharm-community
+        classic: yes
+        state: present
+

@@ -1,29 +1,21 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
-# SETTING VARIABLES
-ANSIBLE_DIR=~/.ansible
+# Update the system
+sudo apt update
 
-function setup_homebrew {
-    echo "Installing Homebrew ..."
-    ruby -e "(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    echo "Successfully installed Homebrew"
-}
+# Install Ansible
+sudo apt install -y ansible
 
-function setup_docker {
-    echo "Installing Docker ..."
-    brew install --cask docker
-    echo "Successfully installed Docker"
-}
+# Install Snap
+sudo apt install -y snapd
 
-function setup_ansible {
-    echo "Creating Ansible directory: $ANSIBLE_DIR"
-    mkdir -p $ANSIBLE_DIR
-    echo "[+] Directory $ANSIBLE_DIR created."
-    brew install ansible
-    ansible-galaxy collection install community.general
-}
+# Enable classic snap support (if not already enabled)
+sudo snap install core
+sudo snap refresh core
 
-# RUN SETUP FUNCTIONS
-setup_ansible
-setup_homebrew
-setup_docker
+# Print installation status
+echo "Ansible and Snap installed successfully."
+
+# Verify Ansible installation
+ansible --version
+
