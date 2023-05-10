@@ -1,6 +1,17 @@
 - name: Install Development Tools
   hosts: localhost
   tasks:
+
+    - name: Tap HashiCorp Homebrew Tap
+      command: brew tap hashicorp/tap
+      args:
+        executable: /usr/local/bin/brew
+    
+    - name: Install Terraform
+      command: brew install hashicorp/tap/terraform
+      args:
+        executable: /usr/local/bin/brew
+
     - name: Install spotify
       community.general.homebrew_cask:
         name: spotify
