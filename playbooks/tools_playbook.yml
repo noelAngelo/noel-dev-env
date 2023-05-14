@@ -52,11 +52,6 @@
         name: openinterminal
         state: present
     
-    - name: Install GitHub Desktop
-      community.general.homebrew_cask:
-        name: github
-        state: present
-    
     - name: Install poetry
       community.general.homebrew:
         name: poetry
@@ -65,6 +60,11 @@
     - name: Install Astro CLI
       community.general.homebrew:
         name: astro
+        state: present
+    
+    - name: Install jq
+      community.general.homebrew:
+        name: jq
         state: present
 
     - name: Install Slack
