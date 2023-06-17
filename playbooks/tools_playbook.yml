@@ -77,6 +77,11 @@
         name: slack
         state: present
     
+    - name: Install Postman
+      community.general.homebrew_cask:
+        name: postman
+        state: present
+    
     - name: Install pycharm-community
       community.general.homebrew:
         name: pycharm-ce
