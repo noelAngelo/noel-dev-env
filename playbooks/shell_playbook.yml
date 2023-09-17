@@ -34,4 +34,10 @@
       apt:
         name: fzf
         state: present
+    
+    - name: Install ngrok
+      snap:
+        name: ngrok
+        classic: yes
+        state: present
 
