@@ -59,4 +59,10 @@
         name: pycharm-community
         classic: yes
         state: present
+    
+    - name: Install Spotify
+      snap:
+        name: spotify
+        classic: yes
+        state: present
 
