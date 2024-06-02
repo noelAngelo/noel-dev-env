@@ -4,21 +4,6 @@
   become: true
 
   tasks:
-    - name: Add Microsoft GPG key for Visual Studio Code
-      apt_key:
-        url: https://packages.microsoft.com/keys/microsoft.asc
-        state: present
-
-    - name: Add Microsoft repository for Visual Studio Code
-      apt_repository:
-        repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-        state: present
-
-    - name: Install Visual Studio Code
-      apt:
-        name: code
-        state: present
-
     - name: Install 1Password
       snap:
         name: 1password
@@ -66,7 +51,7 @@
         classic: yes
         state: present
     
-    - name: Install VS Code
+    - name: Install VSCode
       snap:
         name: code
         classic: yes
