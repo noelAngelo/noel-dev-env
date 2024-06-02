@@ -16,12 +16,6 @@
         channel: latest/beta
         state: present
 
-    - name: Install Astro CLI
-      shell: curl -sSL https://install.astronomer.io | sudo bash
-      args:
-        creates: /usr/local/bin/astro
-      changed_when: false
-
     - name: Install Slack
       snap:
         name: slack
