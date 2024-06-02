@@ -65,4 +65,29 @@
         name: spotify
         classic: yes
         state: present
+    
+    - name: Install VS Code
+      snap:
+        name: code
+        classic: yes
+        state: present
 
+    - name: Install Copilot Client
+      snap:
+        name: copilot-client
+        state: present
+    
+    - name: Install Ngrok
+      snap:
+        name: ngrok
+        state: present
+    
+    - name: Install Gitlab
+      snap:
+        name: glab
+        state: present
+    
+    - name: Install Docker
+      snap:
+        name: docker
+        state: present
