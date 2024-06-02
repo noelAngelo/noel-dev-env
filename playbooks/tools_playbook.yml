@@ -62,11 +62,6 @@
         name: copilot-client
         state: present
     
-    - name: Install Ngrok
-      snap:
-        name: ngrok
-        state: present
-    
     - name: Install Gitlab
       snap:
         name: glab
